@@ -1,12 +1,23 @@
 import { useAuth } from "@/resources/contexts/Auth/useAuth"
-import { useState } from "react"
+import { getUserLocalStore } from "@/resources/contexts/Auth/utils"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 
 export default function Login() {
   const auth = useAuth()
+  const router = useRouter()
 
   const [state, setState] = useState({
     email: '',
     password: ''
+  })
+
+  useEffect(() => {
+    const user = getUserLocalStore()
+        
+    if(user) {
+      router.push('./dashboard')
+    } 
   })
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -16,6 +27,7 @@ export default function Login() {
         email: state.email, 
         password: state.password
       })
+      router.push('./dashboard')
     } catch (error) {
      alert(error)
     }

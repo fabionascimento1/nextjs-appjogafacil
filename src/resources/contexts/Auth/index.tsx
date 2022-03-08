@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { createContext, useEffect, useState } from 'react'
 import {IUser, IAuthContext, IAuthProvider} from './types'
 import { getUserLocalStore, LoginRequest, setUserLocalStorage } from './utils'
@@ -11,9 +12,9 @@ export const AuthProvider = ({ children }: IAuthProvider ) => {
         const user = getUserLocalStore()
         
         if(user) {
-            setUser(user)    
+          setUser(user)
         }
-    },[])
+    }, [])
 
   async function authenticate(params: IUser) {
     const response = await LoginRequest(params)
