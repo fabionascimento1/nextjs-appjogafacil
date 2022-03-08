@@ -10,3 +10,19 @@ export async function LoginRequest({email, password} : IUser) {
         return null
     }
 }
+
+export function setUserLocalStorage (user : IUser | null) {
+    localStorage.setItem('u', JSON.stringify(user))
+}
+
+export function getUserLocalStore() {
+    const json = localStorage.getItem('u')
+
+    if(!json){
+        return null
+    }
+
+    const user = JSON.parse(json)
+
+    return user ?? null
+}
