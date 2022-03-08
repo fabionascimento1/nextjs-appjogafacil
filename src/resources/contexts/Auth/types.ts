@@ -3,7 +3,7 @@ export type IUser = {
   password?: string
 }
 
-export interface IAuthContext {
+export interface IAuthContext extends IUser{
   authenticate: (params: IUser) => Promise<void>
   logout: () => void
 }
