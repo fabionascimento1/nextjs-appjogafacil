@@ -1,29 +1,6 @@
-import { Api } from '@/services/api-node'
 import { createContext, useState } from 'react'
-
-type IUser = {
-  email?: string
-  password?: string
-}
-
-interface IAuthContext {
-  authenticate: (params: IUser) => Promise<void>
-  logout: () => void
-}
-
-interface IAuthProvider {
-  children: JSX.Element
-}
-
-async function LoginRequest({email, password} : IUser) {
-  try {
-        const request = await Api.post('signin', {email, password})
-        return request.data
-        
-    } catch (error) {
-        return null
-    }
-}
+import {IUser, IAuthContext, IAuthProvider} from './types'
+import { LoginRequest } from './utils'
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext)
 
