@@ -1,0 +1,38 @@
+@import "@/styles/Variables.module.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+
+  h1 {
+    font-size: 28px;
+    color: $primaryColor;
+    &:hover {
+      color: $primaryColorHover;
+    }
+  }
+
+  .sign {
+    a {
+      color: $primaryColor;
+
+      &:hover {
+        color: $primaryColorHover;
+      }
+    }
+    .signup {
+      background-color: $primaryColor;
+      margin-left: 15px;
+      color: $secondColor;
+      padding: 5px 10px;
+      border-radius: 2px;
+
+      &:hover {
+        background-color: $primaryColorHover;
+        color: $secondColor;
+      }
+    }
+  }
+}
