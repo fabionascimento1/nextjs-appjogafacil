@@ -1,3 +1,6 @@
+import HeadMetaContent from "@/components/public/head-meta-content"
+import Header from "@/components/public/header/header"
+import PublicTemplate from "@/components/public/public-template"
 import { useAuth } from "@/resources/contexts/Auth/useAuth"
 import { getUserLocalStore } from "@/resources/contexts/Auth/utils"
 import { useRouter } from "next/router"
@@ -40,13 +43,14 @@ export default function Login() {
     })
   }
   return (
-    <>
-    <form onSubmit={handleSubmit}>
+    <PublicTemplate>
+      <HeadMetaContent title="Página de login" meta="Página de login App Joga Fácil" />
+      <form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <input type='email' name='email' placeholder='Digite seu email' onChange={handleChange} />
         <input type='password' name='password' placeholder='Digite sua senha' onChange={handleChange} />
         <button type='submit'>Entrar</button>
       </form>
-    </>
+    </PublicTemplate>
   )
 }
