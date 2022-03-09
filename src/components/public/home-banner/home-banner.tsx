@@ -5,9 +5,9 @@ import BannerStyles from './Home-banner.module.scss'
   return (
     <div className={BannerStyles.banner}>
       <div className={styles.container}>
-        <h2>Facilitar a locação de horários de quadras esportivas</h2>
+        <h2>Facilitar a locação de quadras esportivas.</h2>
         <p>Para que times com horários fixos encontrem adversários.
-            Para jogadores encontre peladas e times para fazerem partes.
+            Para jogadores encontrem peladas e times para fazerem partes.
         </p>
       </div> 
     </div>
