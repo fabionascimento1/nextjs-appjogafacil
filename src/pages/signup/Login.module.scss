@@ -1,0 +1,47 @@
+@import "@/styles/Variables.module.scss";
+
+.login {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+
+  form {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 50px;
+    border-radius: 2px;
+    width: 100%;
+    max-width: 458px;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 25px;
+      color: $primaryColor;
+    }
+
+    input {
+      background-color: $white;
+      border: 0px;
+      font-size: 14px;
+      border-radius: 2px;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: $primaryColor;
+      color: $secondColor;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border: 0px;
+      border-radius: 2px;
+
+      &:hover {
+        background-color: $primaryColorHover;
+      }
+    }
+  }
+}
