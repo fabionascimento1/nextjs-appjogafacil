@@ -1,0 +1,26 @@
+@import "@/styles/Variables.module.scss";
+
+.banner {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  top: 0;
+  background: url("/assets/bannner-home.jpg") no-repeat center center;
+  background-size: cover;
+  height: 483px;
+  padding-top: 100px;
+
+  h2 {
+    color: $white;
+    font-size: 40px;
+    line-height: 47px;
+    width: 100%;
+    max-width: 490px;
+  }
+  p {
+    margin: 20px 0;
+    color: $white;
+    max-width: 380px;
+    line-height: 24px;
+  }
+}

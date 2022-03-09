@@ -7,10 +7,8 @@ import Head from 'next/head'
 const PublicTemplate: NextPage = ({children}): JSX.Element => {
   return (
     <>
-    <div className={styles.container}>
       <Header />
       {children}
-    </div>
     </>
   )
 }
