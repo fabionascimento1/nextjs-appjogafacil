@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "strict": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -34,8 +35,7 @@
       "@/services/*": [
         "src/services/*"
       ]
-    },
-    "strict": false
+    }
   },
   "include": [
     "next-env.d.ts",

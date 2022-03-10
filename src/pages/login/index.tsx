@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useAuth } from "@/resources/contexts/Auth/useAuth"
 import { getUserLocalStore } from "@/resources/contexts/Auth/utils"
 import { useRouter } from "next/router"
@@ -23,7 +24,7 @@ export default function Login() {
     if(user) {
       router.push('./dashboard')
     } 
-  }, auth.setMainError)
+  }, [auth.setMainError])
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     
