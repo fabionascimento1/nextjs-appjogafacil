@@ -43,5 +43,13 @@
         background-color: $primaryColorHover;
       }
     }
+    .errorStatus {
+      background-color: $error;
+      border-radius: 2px;
+      color: $white;
+      margin: 35px 0 15px;
+      padding: 10px 10px;
+      font-size: 14px;
+    }
   }
 }
