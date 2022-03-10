@@ -20,11 +20,10 @@ export const AuthProvider = ({ children }: IAuthProvider ) => {
   async function authenticate(params: IUser) {
     const request = await Api.post('signin', (params))
       .then((response) => {
-       const { email } = params
-      const payload = {token: response.data.token, email}
-      setUser(payload)
-      setUserLocalStorage(payload)
-    
+        const { email } = params
+        const payload = {token: response.data.token, email}
+        setUser(payload)
+        setUserLocalStorage(payload)
       })
       .catch((error) => { 
         setMainError(error.response.data["error"])
@@ -36,7 +35,7 @@ export const AuthProvider = ({ children }: IAuthProvider ) => {
   }
 
   return (
-    <AuthContext.Provider value={{ ...user, mainError, authenticate, logout }}>
+    <AuthContext.Provider value={{ ...user, mainError, setMainError, authenticate, logout }}>
       {children}
     </AuthContext.Provider>
   )

@@ -2,6 +2,7 @@ export type IUser = {
   email?: string
   password?: string
   mainError?: string
+  setMainError?: any
 }
 
 export interface IAuthContext extends IUser{

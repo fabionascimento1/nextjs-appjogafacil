@@ -15,16 +15,15 @@ export default function Login() {
   const [state, setState] = useState({
     email: '',
     password: '',
-    mainError: 'teste'
   })
 
   useEffect(() => {
-    const user = getUserLocalStore()
-        
+    auth.setMainError('')
+    const user = getUserLocalStore()     
     if(user) {
       router.push('./dashboard')
     } 
-  })
+  }, auth.setMainError)
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     
