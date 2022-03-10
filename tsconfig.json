@@ -34,7 +34,8 @@
       "@/services/*": [
         "src/services/*"
       ]
-    }
+    },
+    "strict": false
   },
   "include": [
     "next-env.d.ts",
