@@ -38,7 +38,6 @@ export default function Login() {
       password: state.password
     })
     setShowElement(true)
-    setTimeout(function() { setShowElement(false)}, 5000);
   }
 
   const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
@@ -59,7 +58,7 @@ export default function Login() {
             <button type='submit'>Fazer Login</button>
              
             { 
-              showElement && 
+              showElement && auth.mainError && 
                 <div className={stylesLogin.errorStatus}>
                   <span>{auth.mainError}</span>
                 </div> 
