@@ -9,6 +9,11 @@ export const AuthContext = createContext<IAuthContext>({} as IAuthContext)
 export const AuthProvider = ({ children }: IAuthProvider ) => {
   const [user, setUser] = useState<IUser | null>()
   const [mainError, setMainError] = useState('')
+  const [state, setState] = useState({
+    email: '',
+    password: ''
+  })
+  
   const router = useRouter()
 
   useEffect(() => {
@@ -39,7 +44,7 @@ export const AuthProvider = ({ children }: IAuthProvider ) => {
   }
 
   return (
-    <AuthContext.Provider value={{ ...user, mainError, authenticate, logout }}>
+    <AuthContext.Provider value={{ ...user, state, setState, mainError, authenticate, logout }}>
       {children}
     </AuthContext.Provider>
   )

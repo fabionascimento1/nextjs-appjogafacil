@@ -8,15 +8,13 @@ import HeadMetaContent from "@/components/public/head-meta-content"
 import PublicTemplate from "@/components/public/public-template"
 import styles from '@/styles/Global.module.scss'
 import stylesLogin from './Login.module.scss'
+import Input from "@/components/input/input"
 
 export default function Login() {
   const auth = useAuth()
+  const { state } = useAuth()
+  
   const router = useRouter()
-
-  const [state, setState] = useState({
-    email: '',
-    password: '',
-  })
 
   const [showElement,setShowElement] = useState(true)
 
@@ -34,18 +32,13 @@ export default function Login() {
     event.preventDefault()
 
     await auth.authenticate({
-      email: state.email, 
-      password: state.password
+      email: state['email'], 
+      password: state['password']
     })
     setShowElement(true)
   }
 
-  const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.value
-    })
-  }
+  
   return (
     <PublicTemplate>
       <HeadMetaContent title="Página de login" meta="Página de login App Joga Fácil" />
@@ -53,8 +46,8 @@ export default function Login() {
         <div className={stylesLogin.login}>
           <form onSubmit={handleSubmit}>
             <h2>Fazer Login</h2>
-            <input data-testid='email-input' type='email' name='email' placeholder='Digite seu email' onChange={handleChange} />
-            <input type='password' name='password' placeholder='Digite sua senha' onChange={handleChange} />
+            <Input data-testid='email-input' type='email' name='email' placeholder='Digite seu email'  />
+            <Input type='password' name='password' placeholder='Digite sua senha' />
             <button type='submit'>Fazer Login</button>
              
             { 
