@@ -17,6 +17,9 @@
   .sign {
     a {
       color: $primaryColor;
+      font-size: 14px;
+      line-height: 1em;
+      font-weight: 600;
 
       &:hover {
         color: $primaryColorHover;

@@ -12,15 +12,19 @@
 
   h2 {
     color: $white;
-    font-size: 40px;
-    line-height: 47px;
+    font-family: "Muli-Bold";
     width: 100%;
-    max-width: 490px;
+    max-width: 590px;
+    font-size: 50px;
+    line-height: 1.15em;
+    font-weight: 800;
+    letter-spacing: -1.5px;
   }
   p {
     margin: 20px 0;
     color: $white;
     max-width: 380px;
-    line-height: 24px;
+    font-size: 15px;
+    line-height: 1.6em;
   }
 }
