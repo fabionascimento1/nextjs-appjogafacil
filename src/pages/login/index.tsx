@@ -18,13 +18,16 @@ export default function Login() {
     password: '',
   })
 
+  const [showElement,setShowElement] = useState(true)
+
   useEffect(() => {
-    auth.setMainError('')
+    setTimeout(function() { setShowElement(false)}, 0);
+
     const user = getUserLocalStore()     
     if(user) {
       router.push('./dashboard')
     } 
-  }, [auth.setMainError])
+  },[])
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     
@@ -34,6 +37,8 @@ export default function Login() {
       email: state.email, 
       password: state.password
     })
+    setShowElement(true)
+    setTimeout(function() { setShowElement(false)}, 5000);
   }
 
   const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
@@ -49,12 +54,12 @@ export default function Login() {
         <div className={stylesLogin.login}>
           <form onSubmit={handleSubmit}>
             <h2>Fazer Login</h2>
-            <input type='email' name='email' placeholder='Digite seu email' onChange={handleChange} />
+            <input data-testid='email-input' type='email' name='email' placeholder='Digite seu email' onChange={handleChange} />
             <input type='password' name='password' placeholder='Digite sua senha' onChange={handleChange} />
             <button type='submit'>Fazer Login</button>
              
             { 
-              auth.mainError && 
+              showElement && 
                 <div className={stylesLogin.errorStatus}>
                   <span>{auth.mainError}</span>
                 </div> 

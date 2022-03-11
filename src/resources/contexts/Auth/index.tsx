@@ -11,11 +11,11 @@ export const AuthProvider = ({ children }: IAuthProvider ) => {
   const [mainError, setMainError] = useState()
 
   useEffect(() => {
-        const user = getUserLocalStore()
-        if(user) {
-          setUser(user)
-        }
-    }, [])
+    const user = getUserLocalStore()
+    if(user) {
+      setUser(user)
+    }
+  }, [])
 
   async function authenticate(params: IUser) {
     const request = await Api.post('signin', (params))
@@ -29,13 +29,14 @@ export const AuthProvider = ({ children }: IAuthProvider ) => {
         setMainError(error.response.data["error"])
       })
   }
+
   function logout () {
     setUser(null)
     setUserLocalStorage(null)
   }
 
   return (
-    <AuthContext.Provider value={{ ...user, mainError, setMainError, authenticate, logout }}>
+    <AuthContext.Provider value={{ ...user, mainError, authenticate, logout }}>
       {children}
     </AuthContext.Provider>
   )
