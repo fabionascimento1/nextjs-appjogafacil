@@ -8,7 +8,7 @@ export const AuthContext = createContext<IAuthContext>({} as IAuthContext)
 
 export const AuthProvider = ({ children }: IAuthProvider ) => {
   const [user, setUser] = useState<IUser | null>()
-  const [mainError, setMainError] = useState()
+  const [mainError, setMainError] = useState('')
   const router = useRouter()
 
   useEffect(() => {
@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }: IAuthProvider ) => {
   async function authenticate(params: IUser) {
     const request = await Api.post('signin', (params))
       .then((response) => {
+        setMainError('')
         const { email } = params
         const payload = {token: response.data.token, email}
         setUser(payload)
