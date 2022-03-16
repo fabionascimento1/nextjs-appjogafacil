@@ -24,9 +24,13 @@ export default function Login() {
     mainError: ''
   })
   
-  function validate (email: string) {
+  function validateEmail (email: string) {
     const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     return emailRegex.test(email) ? false : true
+  }
+
+  function validateMinLength(password: string){
+    return password.length >= 5 ? false : true
   }
 
   useEffect(() => {
@@ -40,9 +44,10 @@ export default function Login() {
   useEffect(() => {
       setState({
         ...state,
-        emailError: validate(state['email'])
+        emailError: validateEmail(state['email']),
+        passwordError: validateMinLength(state['password'])
       })
-  }, [state['email']])
+  }, [state.email, state.password])
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     
@@ -54,8 +59,6 @@ export default function Login() {
     })
     setShowElement(true)
   }
-
-  
   return (
     <PublicTemplate>
       <HeadMetaContent title="Página de login" meta="Página de login App Joga Fácil" />
@@ -66,15 +69,13 @@ export default function Login() {
             <h2>Fazer Login</h2>
             <Input data-testid='email-input' type='email' name='email' placeholder='Digite seu email'  />
             <Input type='password' name='password' placeholder='Digite sua senha' />
-            <button data-testid='submit' disabled={state.emailError} type='submit'>Fazer Login</button> 
-             
+            <button data-testid='submit' disabled={state.emailError || state.passwordError} type='submit'>Fazer Login</button> 
             { 
               showElement && auth.mainError && 
                 <div className={stylesLogin.errorStatus}>
                   <span>{auth.mainError}</span>
                 </div> 
             }
-             
           </form>
          </Context.Provider>
         </div>
