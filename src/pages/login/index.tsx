@@ -1,23 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useAuth } from "@/resources/contexts/Auth/useAuth"
-import { getUserLocalStore } from "@/resources/contexts/Auth/utils"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-
+import { useAuth } from "@/resources/contexts/Auth/useAuth"
+import Context from "@/resources/contexts/form/form-contexts"
+import { getUserLocalStore } from "@/resources/contexts/Auth/utils"
 import HeadMetaContent from "@/components/public/head-meta-content"
+import Input from "@/components/input/input"
 import PublicTemplate from "@/components/public/public-template"
 import styles from '@/styles/Global.module.scss'
 import stylesLogin from './Login.module.scss'
-import Input from "@/components/input/input"
 
 export default function Login() {
   const auth = useAuth()
-  const { state } = useAuth()
   const router = useRouter()
   const [showElement,setShowElement] = useState(true)
-   const [errorState, setErrorState] = useState({
+  
+  const [state, setState] = useState({
+    isLoding: false,
+    email: '',
+    password: '',
     emailError: true,
-    passwordError: '',
+    passwordError: true,
+    mainError: ''
   })
   
   function validate (email: string) {
@@ -34,8 +38,8 @@ export default function Login() {
   },[])
 
   useEffect(() => {
-      setErrorState({
-        ...errorState,
+      setState({
+        ...state,
         emailError: validate(state['email'])
       })
   }, [state['email']])
@@ -57,11 +61,12 @@ export default function Login() {
       <HeadMetaContent title="Página de login" meta="Página de login App Joga Fácil" />
       <div className={styles.container}>
         <div className={stylesLogin.login}>
+          <Context.Provider value={{ state, setState }}>
           <form onSubmit={handleSubmit}>
             <h2>Fazer Login</h2>
             <Input data-testid='email-input' type='email' name='email' placeholder='Digite seu email'  />
             <Input type='password' name='password' placeholder='Digite sua senha' />
-            <button data-testid='submit' disabled={errorState.emailError} type='submit'>Fazer Login</button> 
+            <button data-testid='submit' disabled={state.emailError} type='submit'>Fazer Login</button> 
              
             { 
               showElement && auth.mainError && 
@@ -71,7 +76,7 @@ export default function Login() {
             }
              
           </form>
-         
+         </Context.Provider>
         </div>
       </div>
     </PublicTemplate>
