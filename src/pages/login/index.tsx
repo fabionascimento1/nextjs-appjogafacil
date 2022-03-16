@@ -13,19 +13,32 @@ import Input from "@/components/input/input"
 export default function Login() {
   const auth = useAuth()
   const { state } = useAuth()
-  
   const router = useRouter()
-
   const [showElement,setShowElement] = useState(true)
+   const [errorState, setErrorState] = useState({
+    emailError: true,
+    passwordError: '',
+  })
+  
+  function validate (email: string) {
+    const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+    return emailRegex.test(email) ? false : true
+  }
 
   useEffect(() => {
     setTimeout(function() { setShowElement(false)}, 0);
-
     const user = getUserLocalStore()     
     if(user) {
       router.push('./dashboard')
     } 
   },[])
+
+  useEffect(() => {
+      setErrorState({
+        ...errorState,
+        emailError: validate(state['email'])
+      })
+  }, [state['email']])
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     
@@ -48,7 +61,7 @@ export default function Login() {
             <h2>Fazer Login</h2>
             <Input data-testid='email-input' type='email' name='email' placeholder='Digite seu email'  />
             <Input type='password' name='password' placeholder='Digite sua senha' />
-            <button type='submit'>Fazer Login</button>
+            <button data-testid='submit' disabled={errorState.emailError} type='submit'>Fazer Login</button> 
              
             { 
               showElement && auth.mainError && 

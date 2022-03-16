@@ -3,7 +3,7 @@ export type IUser = {
   password?: string
   mainError?: string
   state?: any 
-   setState?: any 
+  setState?: any 
 }
 
 export interface IAuthContext extends IUser{
