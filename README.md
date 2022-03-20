@@ -1,10 +1,12 @@
 ## UI Screen
 
-<img src="https://github.com/fabionascimento1/nextjs-appjogafacil/blob/main/screenshot/home.png?raw=true" />
+<a target="_blank" href="https://www.figma.com/proto/Mnas7DcPBMaoaN1VjcnKdz/AppJogaFacil?page-id=0%3A1&node-id=46%3A2&viewport=241%2C48%2C0.61&scaling=min-zoom&starting-point-node-id=46%3A2"><img src="https://github.com/fabionascimento1/nextjs-appjogafacil/blob/main/screenshot/home.png?raw=true" /></a>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Open [https://www.figma.com/proto/Mnas7DcPBMaoaN1VjcnKdz/AppJogaFacil?page-id=0%3A1&node-id=46%3A2&viewport=241%2C48%2C0.61&scaling=min-zoom&starting-point-node-id=46%3A2](Figma project).
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
