@@ -1,5 +1,4 @@
 import { render, screen, cleanup, RenderResult } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import LoginComponent from "@/pages/login"
 
 type SutTypes = {
@@ -23,7 +22,7 @@ describe('Login', () => {
   });
 
   test('Should start render with initial state', () => {
-     const { view } = makeSut()  
+    const { view } = makeSut()  
     const submitButton = screen.getByTestId('submit') as HTMLButtonElement
     expect(submitButton.disabled).toBe(true)
   });

@@ -9,6 +9,7 @@ import Input from "@/components/input/input"
 import PublicTemplate from "@/components/public/public-template"
 import styles from '@/styles/Global.module.scss'
 import stylesLogin from './Login.module.scss'
+import { validateEmail, validateMinLength } from "@/resources/utils/utils"
 
 export default function Login() {
   const auth = useAuth()
@@ -23,15 +24,6 @@ export default function Login() {
     passwordError: true,
     mainError: ''
   })
-  
-  function validateEmail (email: string) {
-    const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-    return emailRegex.test(email) ? false : true
-  }
-
-  function validateMinLength(password: string){
-    return password.length >= 5 ? false : true
-  }
 
   useEffect(() => {
     setTimeout(function() { setShowElement(false)}, 0);
