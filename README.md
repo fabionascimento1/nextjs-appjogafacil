@@ -1,8 +1,8 @@
 ## UI Screen
 
-<a target="_blank" href="https://www.figma.com/proto/Mnas7DcPBMaoaN1VjcnKdz/AppJogaFacil?page-id=0%3A1&node-id=46%3A2&viewport=241%2C48%2C0.61&scaling=min-zoom&starting-point-node-id=46%3A2"><img src="https://github.com/fabionascimento1/nextjs-appjogafacil/blob/main/screenshot/home.png?raw=true" /></a>
+<img src="https://github.com/fabionascimento1/nextjs-appjogafacil/blob/main/screenshot/home.png?raw=true" />
 
-Open [https://www.figma.com/proto/Mnas7DcPBMaoaN1VjcnKdz/AppJogaFacil?page-id=0%3A1&node-id=46%3A2&viewport=241%2C48%2C0.61&scaling=min-zoom&starting-point-node-id=46%3A2](Figma project)...
+Open [Figma Project](https://www.figma.com/proto/Mnas7DcPBMaoaN1VjcnKdz/AppJogaFacil?page-id=0%3A1&node-id=46%3A2&viewport=241%2C48%2C0.61&scaling=min-zoom&starting-point-node-id=46%3A2)
 
 ## Getting Started
 
