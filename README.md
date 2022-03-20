@@ -4,6 +4,12 @@
 
 Open [Figma Project](https://www.figma.com/proto/Mnas7DcPBMaoaN1VjcnKdz/AppJogaFacil?page-id=0%3A1&node-id=46%3A2&viewport=241%2C48%2C0.61&scaling=min-zoom&starting-point-node-id=46%3A2)
 
+## Build With
+
+- [Next.js](https://nextjs.org/)
+- [Mongo](https://www.mongodb.com)
+- Context API, Axios, Scss, etc ...
+
 ## Getting Started
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
